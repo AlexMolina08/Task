@@ -45,8 +45,10 @@ class TasksScreen extends StatelessWidget {
               ),
             ),
 
-
-
+            Container(
+              color: Colors.white,
+              height: 300.0,
+            ),
 
           ],
         ),

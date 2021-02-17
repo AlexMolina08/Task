@@ -8,7 +8,7 @@ class TasksScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
-          top: 100.0,
+          top: 40.0,
           left: 40.0,
         ),
         child: Column(
@@ -26,7 +26,7 @@ class TasksScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 40.0,
+              height: 20.0,
             ),
             //TITLE
             Text(
@@ -39,16 +39,12 @@ class TasksScreen extends StatelessWidget {
             Text(
               "12 tareas",
               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w300
-              ),
+                  fontSize: 20.0,
+                  color: Colors.grey.shade300,
+                  fontWeight: FontWeight.w300),
             ),
 
-            Container(
-              color: Colors.white,
-              height: 300.0,
-            ),
+            // Container con las tareas
 
           ],
         ),

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:task/models/task.dart';
 
 class TaskWidget extends StatefulWidget {
-
-  final checkBoxValue;
-  final Function onChanged;
-
-  TaskWidget({@required this.checkBoxValue , @required this.onChanged});
+  Task task;
+  TaskWidget({@required this.task});
 
   @override
   _TaskWidgetState createState() => _TaskWidgetState();
@@ -17,10 +15,22 @@ class _TaskWidgetState extends State<TaskWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('Comprar leche'),
+        Text(
+          widget.task.getText(),
+          style: TextStyle(
+
+            decoration: (widget.task.isDone())
+                ? TextDecoration.lineThrough
+                : TextDecoration.none
+          ),
+        ),
         Checkbox(
-          value: widget.checkBoxValue,
-          onChanged: widget.onChanged,
+          value: widget.task.isDone(),
+          onChanged: (value) {
+            setState(
+              () => widget.task.changeValue(),
+            );
+          },
         ),
       ],
     );

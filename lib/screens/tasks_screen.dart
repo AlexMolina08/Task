@@ -1,18 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:task/constants.dart';
+import 'package:task/main.dart';
 import 'package:task/widgets/task_widget.dart';
+import 'package:task/models/task.dart';
 
-class TasksScreen extends StatefulWidget {
-  @override
-  _TasksScreenState createState() => _TasksScreenState();
-}
+class TasksScreen extends StatelessWidget {
 
-class _TasksScreenState extends State<TasksScreen> {
   @override
   bool checkBoxValue = false;
 
+  List<Task> taskList = [
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+    Task(text: 'Comprar pan'),
+  ];
 
+  // actualiza la lista de TaskWidgets
+  List<TaskWidget> getTaskWidgets() {
+    List<TaskWidget> widgetList = [];
+
+    for (Task task in taskList) {
+      widgetList.add(
+        TaskWidget(task: task),
+      );
+    }
+
+    return widgetList;
+
+  }
 
   Widget build(BuildContext context) {
     bool check = false;
@@ -83,10 +106,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
                 child: ListView(
-
-                  children: [
-
-                  ],
+                  children: getTaskWidgets(),
                 ),
               ),
             ),
@@ -98,7 +118,7 @@ class _TasksScreenState extends State<TasksScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: kBackgroundColor,
         child: Icon(
-          Icons.ac_unit,
+          Icons.add,
           size: 40.0,
         ),
         elevation: 0.0,

@@ -9,6 +9,6 @@ const TextStyle kLogoTextStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.w700,
   letterSpacing: 1.3,
-  fontSize: 50.0
+  fontSize: 40.0
 
 );

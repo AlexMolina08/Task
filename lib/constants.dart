@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
 
-// ****************** COLORS ************************
-Color kBackgroundColor = Color(0xff63c9fe);
+// Tamaños
 
-// ***************** TEXT STYLES *****************
-const TextStyle kLogoTextStyle = TextStyle(
-
-  color: Colors.white,
-  fontWeight: FontWeight.w700,
-  letterSpacing: 1.3,
-  fontSize: 40.0
-
-);
+const double kAppIconSize = 30.0;

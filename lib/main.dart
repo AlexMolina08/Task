@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:task/constants.dart';
+import 'package:flutter/widgets.dart';
 import 'package:task/screens/tasks_screen.dart';
 
-void main() => runApp(Tasks());
+void main() => runApp(TaskApp());
 
 
-
-class Tasks extends StatelessWidget {
+class TaskApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: kBackgroundColor
+        scaffoldBackgroundColor: Colors.blueGrey,
+        fontFamily: "Oxanium",
       ),
-      home: TasksScreen(),
+      home: TaskScreen(),
     );
   }
 }

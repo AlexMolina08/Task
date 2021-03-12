@@ -1,21 +1,25 @@
 import 'package:flutter/cupertino.dart';
 
 class Task{
+  String title;
+  bool completed;
 
-  bool _isDone;
-  final String text;
 
-  Task({@required this.text}){
-    _isDone = false; //inicializa tarea como no completada
+  Task({ @required this.title , this.completed = false});
+
+
+  bool isChecked() => completed;
+  String getTitle() => title;
+
+  // Cambia alestado comtrario a completed
+  void changeTaskState(bool newState) {
+    completed = newState;
   }
 
-
-  // cambiar valor _isDone
-  void changeValue() => _isDone = !_isDone;
-
-  bool isDone() => _isDone;
-  String getText() => text;
-
+  // Cambiar el titulo de la tarea
+  void setTitle(String newTitle){
+    title = newTitle;
+  }
 
 
 

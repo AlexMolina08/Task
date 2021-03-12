@@ -1,37 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:task/models/task_data.dart';
 import 'package:task/widgets/task_widget.dart';
 import 'package:task/models/task.dart';
+import 'package:provider/provider.dart';
 
-class TaskList extends StatefulWidget {
-  @override
-  _TaskListState createState() => _TaskListState();
-}
-
-class _TaskListState extends State<TaskList> {
-  List<Task> tasks = [
-    Task(title: 'Comprar pan'),
-    Task(title: 'Ir al peluquero'),
-    Task(title: "hacer los deberes"),
-    Task(title: "Comer con el abuelo")
-  ];
-
-  void add(Task newTask) {
-    tasks.add(newTask);
-  }
+class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: tasks.length,
-      // context tiene la info de donde está el padre del item builder en el widget tree
-      itemBuilder: (BuildContext context, index) {
-        return TaskWidget(
-          taskTitle: tasks[index].getTitle(),
-          isChecked: tasks[index].isChecked(),
-          onChanged: (bool newState) {
-            setState(() {
-              tasks[index].changeTaskState(newState);
-            },);
+    return Consumer<TaskData>(
+      builder: (context , taskData , child){
+        return ListView.builder(
+          itemCount: taskData.getTaskNumber(),
+          // context tiene la info de donde está el padre del item builder en el widget tree
+          itemBuilder: (BuildContext context, index) {
+            return TaskWidget(
+              taskTitle: taskData.taskList[index].title, // obtenemos el titulo de la tarea
+              isChecked: taskData.taskList[index].completed,
+              onChanged: (bool newState) {
+                taskData.updateTaskState(index);
+              },
+            );
           },
         );
       },

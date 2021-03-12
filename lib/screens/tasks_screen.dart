@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task/models/task_data.dart';
 import 'package:task/widgets/task_list.dart';
 import 'package:task/screens/new_task_screen.dart';
 import 'package:task/widgets/task_logo.dart';
+import 'package:provider/provider.dart';
 
 class TaskScreen extends StatelessWidget {
 
@@ -14,7 +16,7 @@ class TaskScreen extends StatelessWidget {
         child: Icon(Icons.add),
         elevation: 0.0,
         // Al pulsar , mostramos una bottomSheet
-        onPressed: () async {
+        onPressed: () {
           showModalBottomSheet(
             context: context,
             isScrollControlled: true,
@@ -43,7 +45,7 @@ class TaskScreen extends StatelessWidget {
                   TaskLogo(),
                   // *** Nº TAREAS ***
                   Text(
-                    '12 tareas',
+                    '${Provider.of<TaskData>(context).getTaskNumber()} tareas',
                     style: TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
